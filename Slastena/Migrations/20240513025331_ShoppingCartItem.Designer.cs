@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Slastena.Models;
 
@@ -10,9 +11,10 @@ using Slastena.Models;
 namespace Slastena.Migrations
 {
     [DbContext(typeof(SlastenaPieShopDbContext))]
-    partial class SlastenaPieShopDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240513025331_ShoppingCartItem")]
+    partial class ShoppingCartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
