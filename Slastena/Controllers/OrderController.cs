@@ -23,8 +23,8 @@ namespace Slastena.Controllers
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
-            var item = _shoppingCart.GetShoppingCartItems();
-            _shoppingCart.ShoppingCartItems = item;
+            var items = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartItems = items;
             
             if(_shoppingCart.ShoppingCartItems.Count == 0) 
             {
