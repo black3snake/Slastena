@@ -16,6 +16,8 @@ builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+
 builder.Services.AddDbContext<SlastenaPieShopDbContext>(options => { 
     options.UseSqlServer(
         builder.Configuration["ConnectionStrings:SlastenaPieShopDbContextConnection"]); 
@@ -58,6 +60,7 @@ app.MapDefaultControllerRoute(); // "{controller=Home}/{action=Index}/{id?}");
     await context.Response.WriteAsync(sb.ToString());
 });*/
 
+app.MapRazorPages();
 
 DbInitializer.Seed(app);
 app.Run();

@@ -15,7 +15,7 @@ namespace Slastena.Controllers
 
         public IActionResult Index()
         {
-            var pieRepository = _pieRepository.PiesofWeek;
+            var pieRepository = _pieRepository.PiesOfTheWeek;
             var homeViewModel = new HomeViewModel(pieRepository);
             return View(homeViewModel);
         }

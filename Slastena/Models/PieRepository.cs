@@ -19,7 +19,7 @@ namespace Slastena.Models
                 return _slastenaPieShopDbContext.Pies.Include(c => c.Category);
             }
         }
-        public IEnumerable<Pie> PiesofWeek
+        public IEnumerable<Pie> PiesOfTheWeek
         {
             get
             {
