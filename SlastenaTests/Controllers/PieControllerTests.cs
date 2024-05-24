@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Slastena.Controllers;
 using Slastena.ViewModels;
-using SlastenaTests.Controllers.Mocks;
+using SlastenaTests.Mocks;
 using System;
 using System.Collections.Generic;
 using System.Linq;

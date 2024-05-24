@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlastenaTests.Controllers.Mocks
+namespace SlastenaTests.Mocks
 {
     public class RepositoryMocks
     {

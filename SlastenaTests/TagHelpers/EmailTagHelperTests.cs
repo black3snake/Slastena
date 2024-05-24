@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlastenaTests.Controllers.TagHelpers
+namespace SlastenaTests.TagHelpers
 {
     public class EmailTagHelperTests
     {
@@ -15,7 +15,7 @@ namespace SlastenaTests.Controllers.TagHelpers
         public void Generates_Email_Link()
         {
             // Arrange
-            EmailTagHelper emailTagHelper = new () { Address = "test@slastena.ru", Content = "Email" };
+            EmailTagHelper emailTagHelper = new() { Address = "test@slastena.ru", Content = "Email" };
 
             var tagHelperContext = new TagHelperContext(
                 new TagHelperAttributeList(),
