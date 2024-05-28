@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Slastena.Models;
 using System.Text;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,8 +16,14 @@ builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sp => ShoppingCart.GetCa
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(option => {
+        option.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+        });
+
 builder.Services.AddRazorPages();
+
+//builder.Services.AddControllers(); // Если есть builder.Services.AddControllersWithViews() то уже API для работы с контрол будет работать
 
 builder.Services.AddDbContext<SlastenaPieShopDbContext>(options => { 
     options.UseSqlServer(
@@ -61,6 +68,8 @@ app.MapDefaultControllerRoute(); // "{controller=Home}/{action=Index}/{id?}");
 });*/
 
 app.MapRazorPages();
+
+//app.MapControllers(); // ошибок не будет, но если есть app.MapDefaultControllerRoute() то и без этой строки API будет работать
 
 DbInitializer.Seed(app);
 app.Run();
