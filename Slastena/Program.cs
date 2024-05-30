@@ -30,6 +30,9 @@ builder.Services.AddDbContext<SlastenaPieShopDbContext>(options => {
         builder.Configuration["ConnectionStrings:SlastenaPieShopDbContextConnection"]); 
 });
 
+// up Blazor
+builder.Services.AddServerSideBlazor();
+
 var services = builder.Services;
 
 var app = builder.Build();
@@ -68,6 +71,10 @@ app.MapDefaultControllerRoute(); // "{controller=Home}/{action=Index}/{id?}");
 });*/
 
 app.MapRazorPages();
+
+// up SignalR for Blazor
+app.MapBlazorHub();
+app.MapFallbackToPage("/app/{*catchall}", "/App/Index");
 
 //app.MapControllers(); // ошибок не будет, но если есть app.MapDefaultControllerRoute() то и без этой строки API будет работать
 
